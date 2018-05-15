@@ -618,7 +618,7 @@ Messages.prototype = {
     // Check if template contains other replacements
     var otherReplacements = template.match(/:(?!attribute)\w+/g);
     // Check if rule name is a replacement, and there for possibly needs to be translated
-    if (otherReplacements.indexOf(':' + rule.name) > -1) {
+    if (otherReplacements && otherReplacements.indexOf(':' + rule.name) > -1) {
       data[rule.name] = this._getAttributeName(data[rule.name]);
     }
 
