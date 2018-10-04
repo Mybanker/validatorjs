@@ -49,6 +49,8 @@ Messages.prototype = {
     var name = attribute;
     if (this.attributeNames.hasOwnProperty(attribute)) {
       return this.attributeNames[attribute];
+    } else if (/\d/.test(attribute) && this.attributeNames.hasOwnProperty(attribute.replace(/\d/, '*'))) {
+      return this.attributeNames[attribute.replace(/\d/, '*')];
     } else if (this.messages.attributes.hasOwnProperty(attribute)) {
       name = this.messages.attributes[attribute];
     }
